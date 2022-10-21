@@ -48,22 +48,19 @@ require("null-ls").setup({
   debug = false,
   sources = {
     --require("null-ls").builtins.formatting.stylua,
-    require("null-ls").builtins.formatting.eslint_d,
+    -- require("null-ls").builtins.formatting.eslint_d,
     require("null-ls").builtins.formatting.jq,
-    require("null-ls").builtins.formatting.markdownlint,
+    -- require("null-ls").builtins.formatting.markdownlint,
     require("null-ls").builtins.formatting.terraform_fmt,
     -- null_ls.builtins.formatting.beautysh
     -- https://github.com/lovesegfault/beautysh
     -- null_ls.builtins.formatting.shellharden
     -- https://github.com/anordal/shellharden
-    require("null-ls").builtins.code_actions.eslint_d,
+    -- require("null-ls").builtins.code_actions.eslint_d,
     -- require("null-ls").builtins.code_actions.shellcheck,
-    require("null-ls").builtins.diagnostics.actionlint,
-    require("null-ls").builtins.diagnostics.eslint_d,
-    require("null-ls").builtins.diagnostics.markdownlint,
-    require("null-ls").builtins.diagnostics.tsc.with({
-      prefer_local = "node_modules/.bin",
-    })
+    -- require("null-ls").builtins.diagnostics.actionlint,
+    -- require("null-ls").builtins.diagnostics.eslint_d,
+    -- require("null-ls").builtins.diagnostics.markdownlint,
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then

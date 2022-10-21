@@ -1,3 +1,4 @@
+local g = vim.g
 local o = vim.o
 
 o.termguicolors = true
@@ -10,7 +11,8 @@ o.signcolumn = 'yes'
 
 -- Better editing experience
 o.expandtab = true
-o.cindent = true
+o.smartindent = false
+o.cindent = false
 o.tabstop = 4
 o.list = true
 o.listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂'
@@ -18,6 +20,8 @@ o.shiftwidth = 2
 o.softtabstop = -1
 o.hlsearch = false
 vim.cmd("set formatoptions=tqj")
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 -- Case insensitive searching UNLESS /C or capital in search
 o.ignorecase = true

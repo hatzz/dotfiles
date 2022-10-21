@@ -40,7 +40,7 @@ local on_attach = function(_, bufnr)
   vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 end
 
-local servers = { 'rust_analyzer', 'tsserver', 'eslint', 'terraformls', 'bashls' }
+local servers = { 'rust_analyzer', 'tsserver', 'eslint', 'terraformls', 'bashls', 'denols' }
 
 -- Borders on hover
 local handlers = {

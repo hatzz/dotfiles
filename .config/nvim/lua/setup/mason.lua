@@ -13,6 +13,7 @@ require("mason-lspconfig").setup({
     "tflint",
     "tsserver",
     "yamlls",
-    "bashls"
+    "bashls",
+    "denols"
   }
 })
