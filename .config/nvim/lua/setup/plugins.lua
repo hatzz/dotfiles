@@ -9,7 +9,6 @@ local ensure_packer = function()
   return false
 end
 
-
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
@@ -33,7 +32,13 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
-
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
 
   -- Linters and stuff
   use 'jose-elias-alvarez/null-ls.nvim'
@@ -51,6 +56,13 @@ return require('packer').startup(function(use)
   use 'rcarriga/nvim-notify'
   use 'folke/noice.nvim'
   use 'kylechui/nvim-surround'
+  use {
+    "zbirenbaum/copilot.lua",
+    event = "VimEnter",
+    config = function()
+        require("copilot").setup()
+    end,
+  }
 
   if packer_bootstrap then
     require('packer').sync()

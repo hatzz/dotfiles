@@ -37,10 +37,10 @@ local on_attach = function(_, bufnr)
     },
   })
 
-  vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+  -- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 end
 
-local servers = { 'rust_analyzer', 'tsserver', 'eslint', 'terraformls', 'bashls', 'denols' }
+local servers = { 'rust_analyzer', 'tsserver', 'eslint', 'terraformls', 'bashls', 'svelte', 'tailwindcss', 'gopls' }
 
 -- Borders on hover
 local handlers = {
@@ -71,6 +71,17 @@ lspconfig.sumneko_lua.setup({
       },
     },
   },
+})
+
+lspconfig.denols.setup({
+  on_attach = on_attach,
+  handlers = handlers,
+  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+  init_options = {
+    enable = true,
+    unstable = false,
+    config = "deno.json"
+  }
 })
 
 for _, lsp in ipairs(servers) do
